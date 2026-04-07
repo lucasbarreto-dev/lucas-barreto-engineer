@@ -111,30 +111,37 @@ export interface ExperienceEntry {
 export const experience: ExperienceEntry[] = [
   {
     company: "DTWO TECNOLOGIA",
-    role: "Mid-Level Full Stack Developer",
-    period: "2023 — Present",
+    role: "Full Stack Developer",
+    period: "2025 — Present",
     bullets: [
-      "Designed and maintained mobile-first web applications using React and TypeScript, serving internal and client-facing products",
-      "Architected backend services and database models using PostgreSQL (Supabase), ensuring scalable data access patterns",
-      "Developed automation workflows integrating internal systems and third-party services, reducing manual operational steps",
-      "Refactored legacy modules to improve maintainability, reducing coupling between components and simplifying future development",
+      "Build and maintain web and mobile applications using TypeScript, React, and Node.js",
+      "Contribute to Habilita+, a platform for the driver’s license acquisition journey",
+      "Develop full stack features across frontend, backend, and service integrations",
+      "Integrate external APIs, including payment solutions such as Stripe",
+      "Investigate and resolve technical issues to enhance application stability and product evolution",
+      "Support deployment routines, environment maintenance, and workflow improvements",
+      "Leverage AI-assisted development tools (Lovable, Antigravity) to accelerate feature delivery",
+      "Participate in code reviews and promote engineering best practices",
     ],
-    stack: ["React", "TypeScript", "Supabase", "PostgreSQL", "Node.js", "Tailwind CSS"],
+    stack: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase", "Stripe"],
   },
   {
     company: "STRIDES",
     role: "Software Engineer Jr.",
-    period: "2022 — 2023",
+    period: "2023 — 2025",
     bullets: [
-      "Built and shipped product features across frontend and backend layers, contributing to core platform functionality",
-      "Implemented API integrations connecting internal tools to external platforms, enabling automated data flows",
-      "Contributed to system architecture decisions impacting scalability and data flow across the application",
-      "Collaborated with product and operations teams to translate business requirements into well-structured technical solutions",
+      "Developed software features, automation workflows, and internal process improvements",
+      "Built automations using Google Apps Script and no-code/low-code platforms like Make",
+      "Implemented system and API integrations to automate operational processes",
+      "Structured and maintained operational data flows and internal process logic",
+      "Optimized internal routines to reduce manual work and improve team efficiency",
+      "Applied AI-assisted automations for communication workflows and data processing",
+      "Identified bottlenecks and proposed technical improvements to enhance productivity",
+      "Supported setup and management of 40+ educational cohorts and certificate workflows",
     ],
-    stack: ["React", "JavaScript", "Node.js", "REST APIs", "Git"],
+    stack: ["React", "JavaScript", "Node.js", "REST APIs", "Google Apps Script", "Make"],
   },
 ];
-
 export const skillGroups = [
   {
     label: "Frontend",
@@ -158,7 +165,7 @@ export const skillGroups = [
   },
   {
     label: "DevOps & Tools",
-    skills: ["Git", "GitHub", "Docker", "CI/CD", "Vercel", "Linux"],
+    skills: ["Git", "GitHub", "Docker", "CI/CD", "Linux"],
   },
 ];
 
