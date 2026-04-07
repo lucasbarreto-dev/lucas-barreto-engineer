@@ -73,7 +73,7 @@ export const experience: ExperienceEntry[] = [
     role: "Full Stack Developer",
     period: "2025 — Present",
     bullets: [
-      "Build and maintain web and mobile applications using TypeScript, React, and Node.js",
+      "Build and maintain web and mobile applications using TypeScript, React, and Tailwind CSS",
       "Contribute to Habilita+, a platform for the driver’s license acquisition journey",
       "Develop full stack features across frontend, backend, and service integrations",
       "Integrate external APIs, including payment solutions such as Stripe",
@@ -98,32 +98,76 @@ export const experience: ExperienceEntry[] = [
       "Identified bottlenecks and proposed technical improvements to enhance productivity",
       "Supported setup and management of 40+ educational cohorts and certificate workflows",
     ],
-    stack: ["React", "JavaScript", "Node.js", "REST APIs", "Google Apps Script", "Make"],
+    stack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "REST APIs", "Google Apps Script", "Make"],
   },
 ];
+
 export const skillGroups = [
   {
-    label: "Frontend",
-    skills: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML/CSS", "Responsive Design"],
+    label: "Frontend Engineering",
+    skills: [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "HTML/CSS",
+      "Responsive Design",
+    ],
   },
   {
-    label: "Backend",
-    skills: ["Node.js", "Express", "REST APIs", "Supabase", "Authentication", "Server-side Logic"],
+    label: "Backend & APIs",
+    skills: [
+      "Node.js",
+      "Express",
+      "REST APIs",
+      "Supabase",
+      "JWT",
+      "Python",
+    ],
   },
   {
-    label: "Databases",
-    skills: ["PostgreSQL", "Supabase", "Data Modeling", "Migrations", "Query Optimization"],
+    label: "Data & Persistence",
+    skills: [
+      "PostgreSQL",
+      "Supabase",
+      "Data Modeling",
+      "Migrations",
+      "Query Optimization",
+    ],
   },
   {
     label: "Automation & Integrations",
-    skills: ["n8n", "Google Apps Script", "Webhooks", "API Integrations", "Cron Jobs", "Make"],
+    skills: [
+      "Google Apps Script",
+      "Make",
+      "n8n",
+      "Webhooks",
+      "API Integrations",
+      "Workflow Automation",
+    ],
   },
   {
-    label: "Testing",
-    skills: ["Vitest", "Jest", "React Testing Library", "Integration Testing", "Manual QA"],
+    label: "AI-Assisted Development",
+    skills: [
+      "Cursor",
+      "Lovable",
+      "Antigravity",
+      "Prompt Engineering",
+      "AI Workflow Prototyping",
+    ],
   },
   {
-    label: "DevOps & Tools",
+    label: "Testing & Reliability",
+    skills: [
+      "Vitest",
+      "Jest",
+      "React Testing Library",
+      "Integration Testing",
+      "Manual QA",
+    ],
+  },
+  {
+    label: "Developer Tools",
     skills: ["Git", "GitHub", "Docker", "CI/CD", "Linux"],
   },
 ];
