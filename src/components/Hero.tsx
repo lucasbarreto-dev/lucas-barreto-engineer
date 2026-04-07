@@ -17,11 +17,11 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-wrap gap-3 mb-8">
-          <Button asChild>
+          {/* <Button asChild>
             <a href={siteConfig.resumeUrl}>
               View Resume <ArrowRight className="ml-1" size={16} />
             </a>
-          </Button>
+          </Button> */}
           <Button variant="outline" asChild>
             <a href="#contact">
               <Mail className="mr-1" size={16} /> Get in Touch
