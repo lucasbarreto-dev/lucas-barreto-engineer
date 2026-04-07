@@ -37,65 +37,24 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: "Internal Operations Dashboard",
-    type: "Internal Tool",
+    title: "Learning Operations Automation Pipeline",
+    type: "Back-Office Automation",
     context:
-      "A growing company relied on disconnected spreadsheets to manage daily operations across multiple departments.",
+      "The learning platform update process depended on repetitive manual work to organize and publish session assets for educational cohorts.",
     problem:
-      "Three separate spreadsheets tracked overlapping data with no validation or sync. Teams spent 30+ minutes daily reconciling information manually, leading to frequent data inconsistencies and delayed reporting.",
+      "Operations relied on a time-consuming workflow to locate meeting recordings, organize folders, rename files, export materials, and prepare content for platform publishing. This process created inconsistencies, increased execution time, and introduced avoidable operational errors.",
     solution:
-      "Built a centralized admin panel with role-based access, real-time data views, and structured input forms. Designed a modular component architecture to support future feature additions without refactoring existing modules. Implemented server-side validation and audit logging for data integrity.",
-    role: "Designed and implemented the full system — frontend, backend API, database schema, and deployment pipeline.",
+      "Built a daily automation workflow using Google Apps Script to process session assets end-to-end. The system identified session metadata, created standardized folder structures, copied and renamed meeting recordings, exported supporting materials to PDF, generated metadata files, and logged execution to ensure traceability and idempotent processing.",
+    role:
+      "Designed and implemented the full automation workflow, including business logic, file processing rules, Google Workspace integrations, and operational structure.",
     outcome:
-      "Replaced 3 disconnected spreadsheets with a single source of truth. Eliminated daily manual data consolidation across departments. Reduced data entry errors through server-side validation and structured forms.",
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
-  },
-  {
-    title: "Meeting Recording Pipeline",
-    type: "Automation",
-    context:
-      "An operations team needed meeting recordings transcribed and distributed to relevant stakeholders after each session.",
-    problem:
-      "Recordings were manually downloaded, transcribed using separate tools, and shared via email — a process that took 20–30 minutes per meeting and was frequently skipped due to time constraints.",
-    solution:
-      "Designed an automated pipeline using n8n that triggers on new recordings, sends audio to a transcription service, formats the output, and distributes summaries to the appropriate channels. Built error handling and retry logic for failed transcriptions.",
-    role: "Designed and built the complete automation workflow, including trigger configuration, API integrations, and error handling.",
-    outcome:
-      "Automated transcription and distribution for 20+ weekly meetings. Removed a recurring 8–10 hour/week manual process. Ensured consistent delivery of meeting summaries to all stakeholders.",
-    stack: ["n8n", "REST APIs", "Webhooks", "Google Drive", "Slack API"],
-  },
-  {
-    title: "CRM Data Sync Integration",
-    type: "Integration",
-    context:
-      "A sales team used two platforms — a CRM and an internal client management tool — with overlapping but unsynchronized client data.",
-    problem:
-      "Client records drifted out of sync between platforms, causing sales reps to work with outdated information. A weekly manual sync took 2+ hours and still missed edge cases like deleted or merged records.",
-    solution:
-      "Built a bidirectional sync service with conflict resolution logic, handling create/update/delete events across both platforms via their APIs. Implemented idempotent processing and detailed sync logs for debugging and auditing.",
-    role: "Built the backend integration layer, API connectors, conflict resolution logic, and monitoring dashboard.",
-    outcome:
-      "Ensured real-time data consistency across 2 platforms. Eliminated the weekly 2-hour manual sync process entirely. Reduced client data discrepancies to near-zero through automated conflict resolution.",
-    stack: ["Node.js", "REST APIs", "PostgreSQL", "Cron Jobs", "Docker"],
-  },
-  {
-    title: "Product Workflow Automation",
-    type: "Process Automation",
-    context:
-      "An operations team managed approval workflows and internal notifications through manual steps across multiple tools.",
-    problem:
-      "Approval requests were tracked in spreadsheets, notifications were sent manually via email, and status updates required switching between 3 different tools — leading to delays and missed steps.",
-    solution:
-      "Developed a webhook-driven automation system using Google Apps Script that listens for form submissions, routes approval requests to the right managers, sends notifications, and updates status across connected tools. Built with modular handlers for each workflow step.",
-    role: "Developed automation scripts, webhook handlers, and integration connectors. Defined workflow logic with the operations team.",
-    outcome:
-      "Reduced approval turnaround time from days to hours. Automated repetitive notification and status-update steps across 3 tools. Freed up approximately 5 hours/week of manual operations work.",
+      "Automated the processing of 9–11 sessions per week, saving approximately 12–15 minutes per session (~2–3 hours weekly). Reduced operational errors to near zero while improving standardization, reliability, and scalability of the publishing workflow.",
     stack: [
       "Google Apps Script",
-      "Webhooks",
-      "Google Sheets API",
-      "Gmail API",
-      "REST APIs",
+      "JavaScript",
+      "Google Sheets",
+      "Google Drive",
+      "Google Meet",
     ],
   },
 ];
