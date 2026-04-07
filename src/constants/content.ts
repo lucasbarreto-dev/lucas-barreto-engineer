@@ -3,9 +3,10 @@ export const siteConfig = {
   title: "Full Stack Software Engineer",
   tagline:
     "Building scalable web applications, internal tools, and automation workflows for product-driven teams.",
-  email: "lucas@example.com",
-  github: "https://github.com/lucasbarreto",
-  linkedin: "https://linkedin.com/in/lucasbarreto",
+  email: "lucasbs.code@gmail.com",
+  github: "https://github.com/lucasbarreto-dev",
+  linkedin: "https://www.linkedin.com/in/lucasbarreto-dev/",
+  upwork: "https://www.upwork.com/freelancers/~01849be61777eaf50b",
   resumeUrl: "#",
 };
 
@@ -163,6 +164,7 @@ export const skillGroups = [
       "Jest",
       "React Testing Library",
       "Integration Testing",
+      "Playwright",
       "Manual QA",
     ],
   },
