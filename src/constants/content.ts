@@ -65,6 +65,7 @@ export const caseStudies: CaseStudy[] = [
       "MCP",
     ],
     github: "https://github.com/lucasbarreto-dev/ai-compliance-copilot",
+    video: "https://www.youtube.com/embed/PtnFZQmGtwA",
   },
   {
     title: "Learning Operations Automation Pipeline",

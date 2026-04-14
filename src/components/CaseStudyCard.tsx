@@ -1,12 +1,15 @@
 import type { CaseStudy } from "@/constants/content";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Play } from "lucide-react";
+import { useState } from "react";
 
 interface Props {
   study: CaseStudy;
 }
 
 const CaseStudyCard = ({ study }: Props) => {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <div className="rounded-lg border border-border bg-card p-6 md:p-8">
       <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -36,6 +39,41 @@ const CaseStudyCard = ({ study }: Props) => {
           <p className="text-foreground text-sm leading-relaxed font-medium">{study.outcome}</p>
         </div>
       </div>
+
+      {study.video && (
+        <div className="mb-6">
+          {showVideo ? (
+            <div className="aspect-video rounded-md overflow-hidden border border-border">
+              <iframe
+                src={study.video}
+                title={`${study.title} Demo`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          ) : (
+            <button
+              onClick={() => setShowVideo(true)}
+              className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"
+            >
+              <Play size={16} />
+              Watch Demo
+            </button>
+          )}
+          {showVideo && (
+            <a
+              href="https://youtu.be/PtnFZQmGtwA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors mt-2"
+            >
+              <ExternalLink size={12} />
+              Open on YouTube
+            </a>
+          )}
+        </div>
+      )}
 
       <div className="flex flex-wrap gap-2 mb-4">
         {study.stack.map((tech) => (
