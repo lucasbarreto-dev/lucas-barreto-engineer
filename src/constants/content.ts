@@ -34,6 +34,7 @@ export interface CaseStudy {
   stack: string[];
   github?: string;
   demo?: string;
+  video?: string;
 }
 
 export const caseStudies: CaseStudy[] = [
