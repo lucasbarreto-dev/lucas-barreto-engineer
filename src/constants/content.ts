@@ -38,6 +38,34 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    title: "AI Compliance Copilot",
+    type: "Developer Tooling",
+    context:
+      "Open-source project built for the E2B + MCP Hackathon — an AI-powered compliance assistant for GitHub pull requests.",
+    problem:
+      "Engineering teams lack automated, centralized compliance checks during code review. Security vulnerabilities, license violations, and code quality issues are often caught too late — or not at all — leading to costly fixes and audit risks.",
+    solution:
+      "Built a full-stack compliance bot that hooks into GitHub PRs via webhooks, spins up isolated E2B sandboxes to run security scanners, and uses Groq AI (LLaMA 3.1 70B) to analyze findings. The system detects hardcoded secrets, SQL injection, XSS, GPL violations, weak cryptography, and enforces custom company rules — all with configurable severity levels and a real-time dashboard.",
+    role:
+      "Designed and implemented the complete system architecture — backend API, E2B sandbox orchestration, Groq AI integration, GitHub App webhook handlers, compliance rules engine, and the Next.js dashboard.",
+    outcome:
+      "Delivered a production-ready tool that automatically scans PRs for 4 compliance categories (security, licensing, code quality, custom rules), provides inline PR comments with actionable findings, and supports manual commands for on-demand scanning and automated fixes.",
+    stack: [
+      "Node.js",
+      "TypeScript",
+      "Express",
+      "Next.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "E2B",
+      "Groq AI",
+      "MCP",
+    ],
+    github: "https://github.com/lucasbarreto-dev/ai-compliance-copilot",
+  },
+  {
     title: "Learning Operations Automation Pipeline",
     type: "Back-Office Automation",
     context:
