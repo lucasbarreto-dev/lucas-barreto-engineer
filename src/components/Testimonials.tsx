@@ -11,12 +11,12 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     name: "Liliane Silva",
-    role: "Especialista de Processos e Operações | Trabalhou com Lucas na Strides",
-    text: "Lucas é um desenvolvedor tecnicamente sólido, com forte capacidade de transformar necessidades em soluções eficientes. Cria soluções bem estruturadas, confiáveis e com foco em impacto real no negócio. Além disso, se destaca por sua colaboração e por compartilhar conhecimento com o time, elevando o nível técnico das pessoas ao redor.",
+    role: "Process & Operations Specialist | Worked with Lucas at Strides",
+    text: "Lucas is a technically strong developer with a solid ability to turn requirements into efficient solutions. He builds well-structured and reliable systems with a strong focus on real business impact. He also stands out for his collaboration and willingness to share knowledge, consistently raising the technical level of the team around him.",
   },
   {
     name: "Pedro Caldas",
-    role: "Machine Learning | GenAI | AI Engineer @ Santander | Estudou com Lucas na Trybe",
+    role: "Machine Learning | GenAI | AI Engineer @ Santander | Studied with Lucas at Trybe",
     text: "Lucas is an extremely hardworking person who cares a lot about being organized to achieve his goals. I studied with him during our programming course and that was undoubtedly his trait that caught my attention the most. Anyone lucky enough to work with Lucas can be sure to have someone very competent at their side.",
   },
 ];
