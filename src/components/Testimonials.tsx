@@ -12,7 +12,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Liliane Silva",
     role: "Especialista de Processos e Operações | Trabalhou com Lucas na Strides",
-    text: "Trabalhar com o Lucas é contar com um desenvolvedor tecnicamente muito sólido, com grande capacidade de transformar necessidades reais em soluções eficientes. Ele domina bem o desenvolvimento e a automação de processos, sempre com foco em melhorar fluxos, reduzir retrabalho e otimizar o tempo das equipes. Lucas entrega soluções bem estruturadas, confiáveis e pensadas para o longo prazo. Mais do que executar demandas, ele analisa cenários, propõe melhorias e constrói automações que realmente impactam a operação e o negócio. Um diferencial marcante é a forma como compartilha conhecimento. Lucas é acessível, didático e sempre disposto a explicar, apoiar e orientar, contribuindo ativamente para a evolução técnica do time e para a adoção de boas práticas. É um profissional comprometido, responsável e colaborativo, que une profundidade técnica, visão prática e capacidade de execução. Recomendo fortemente o Lucas para times que buscam um desenvolvedor que gera impacto, melhora processos e eleva o nível de quem trabalha ao seu lado.",
+    text: "Lucas é um desenvolvedor tecnicamente sólido, com forte capacidade de transformar necessidades em soluções eficientes. Cria soluções bem estruturadas, confiáveis e com foco em impacto real no negócio. Além disso, se destaca por sua colaboração e por compartilhar conhecimento com o time, elevando o nível técnico das pessoas ao redor.",
   },
   {
     name: "Pedro Caldas",
