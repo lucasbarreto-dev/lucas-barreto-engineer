@@ -39,6 +39,34 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    title: "Habilita+ — AI-Powered Driver Education Platform",
+    type: "Full-Stack EdTech SaaS + Marketplace",
+    context:
+      "Habilita+ is a full-stack educational platform designed to simulate the complete journey of obtaining a driver's license, combining theoretical learning, gamified assessments, AI assistance, and a marketplace of certified driving instructors.",
+    problem:
+      "Traditional driving education is fragmented, low-engagement, and heavily dependent on in-person instruction with limited personalization. Students often struggle with theory retention, lack practice simulation, and have no centralized system to connect with instructors or track learning progress.",
+    solution:
+      "Built a unified SaaS platform integrating structured learning modules, adaptive quizzes, competitive simulations, and an AI assistant embedded in the learning flow. Developed a dual marketplace system for instructors with geolocation-based discovery, scheduling, real-time chat, and Stripe-powered payments. Implemented role-based access control, subscription management, identity verification with liveness detection, and automated certificate generation with QR-based validation.",
+    role:
+      "Led full-stack architecture and implementation of core product systems, including authentication flows, subscription engine, AI integration, marketplace logic, and educational content delivery system.",
+    outcome:
+      "Delivered a production-grade EdTech platform integrating multiple complex systems (AI, payments, marketplace, identity verification, and gamification). Designed for scalability, modularity, and multi-role access (student, instructor, admin), simulating a real-world SaaS ecosystem with end-to-end user journeys.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js (Lovable Cloud)",
+      "PostgreSQL",
+      "Stripe",
+      "RevenueCat",
+      "AWS Amplify Liveness",
+      "Web Speech API",
+      "TanStack Query",
+      "AI APIs (OpenAI / Google models)",
+    ],
+    demo: "https://www.instagram.com/habilitamais.app/reel/DWb-I_JkcPs/",
+  },
+  {
     title: "AI Compliance Copilot",
     type: "Developer Tooling",
     context:
