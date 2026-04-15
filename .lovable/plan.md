@@ -1,22 +1,30 @@
 
 
-# Upgrade CTA "Get in Touch" — Results-Oriented, in English
+# Hero Refactor + Contact CTA Upgrade
 
-## What changes
+Two changes in one pass.
 
-Transform the generic contact section into an aggressive, hiring-oriented CTA that positions Lucas as a solution to a recruiter's problem.
+## 1. Hero — Two-column layout with photo
 
-## New copy
+**Copy photo** to `src/assets/lucas-profile.png` from the uploaded file.
 
+**Rewrite `src/components/Hero.tsx`**:
+- Two-column grid (`md:grid-cols-2`), vertically centered
+- **Left**: title label, name (h1), tagline, "Get in Touch" button (Mail icon, links to #contact), trust signal badges
+- **Right**: professional photo with rounded corners, `shadow-xl`, decorative glow blur behind (absolute positioned div with `bg-primary/20 blur-3xl`)
+- **Mobile**: single column, photo on top (`order-first` on mobile, `order-last` on md+), text below
+- No new libraries, no changes to `siteConfig` or `trustSignals`
+
+## 2. Contact CTA — Hiring-oriented copy (English)
+
+**Update `src/components/Contact.tsx`**:
 - **Heading**: "Looking for someone who automates processes and delivers results?"
 - **Subtext**: "I can help your team reduce manual work and build more efficient systems using Node.js, integrations, and AI."
-- **Primary CTA**: "Let's Talk" button (mailto link), visually prominent
-- **Secondary**: GitHub, LinkedIn, Upwork kept as icon links below
+- **Primary CTA**: "Let's Talk" button (mailto link), prominent style
+- Social links (GitHub, LinkedIn, Email) stay as secondary row below
 
-## Technical changes
-
-1. **`src/constants/content.ts`** — Add `contactHeading` and `contactDescription` to `siteConfig`
-2. **`src/components/Contact.tsx`** — Use new fields for heading/subtext, add a styled "Let's Talk" `<a>` button as primary CTA, keep social links as secondary row
-
-Visual style stays consistent with the current dark, restrained theme.
+## Files changed
+- `src/assets/lucas-profile.png` (new — copied from upload)
+- `src/components/Hero.tsx` (rewrite)
+- `src/components/Contact.tsx` (copy update)
 
