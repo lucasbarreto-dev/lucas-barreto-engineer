@@ -234,8 +234,9 @@ export const skillGroups = [
 
 export const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
+  { label: "Works", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
