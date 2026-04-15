@@ -11,34 +11,27 @@ const Contact = () => {
     <section id="contact" className="bg-section-alt py-20 md:py-28">
       <div ref={ref} className="max-w-3xl mx-auto px-6 text-center">
         
-        {/* Heading */}
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-          Looking for someone to reduce manual work and automate your operations?
+          Looking for someone who automates processes and delivers results?
         </h2>
 
-        {/* Subtext */}
         <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-          I help teams reduce manual work, eliminate operational errors, and build scalable systems using Node.js, integrations, and AI.
+          I can help your team reduce manual work and build more efficient systems using Node.js, integrations, and AI.
         </p>
 
-        {/* Primary CTA */}
         <a
           href={mailtoLink}
           className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-xl font-medium hover:opacity-90 transition mb-3"
         >
           <Mail size={18} />
-          Work With Me
+          Let's Talk
         </a>
 
-        {/* Microcopy */}
         <p className="text-xs text-muted-foreground mb-8">
           Usually replies within 24 hours
         </p>
 
-        {/* Secondary Links */}
         <div className="flex justify-center gap-6">
-          
-          {/* GitHub (mais importante) */}
           <a
             href={siteConfig.github}
             target="_blank"
@@ -47,8 +40,6 @@ const Contact = () => {
           >
             <Github size={18} /> GitHub
           </a>
-
-          {/* LinkedIn */}
           <a
             href={siteConfig.linkedin}
             target="_blank"
@@ -57,8 +48,6 @@ const Contact = () => {
           >
             <Linkedin size={18} /> LinkedIn
           </a>
-
-          {/* Email secundário */}
           <a
             href={mailtoLink}
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
