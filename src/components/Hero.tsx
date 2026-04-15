@@ -1,57 +1,51 @@
-import { siteConfig, trustSignals } from "@/constants/content";
+import { siteConfig } from "@/constants/content";
 import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
-import profilePhoto from "@/assets/lucas-profile.png";
+import heroBg from "@/assets/lucas-hero-bg.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-[90vh] flex items-center justify-center pt-16">
-      <div className="max-w-5xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
-        
-        {/* LEFT - TEXT */}
-        <div className="order-2 md:order-1">
-          <p className="text-primary text-sm font-medium tracking-wide mb-4">
-            {siteConfig.title}
-          </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-tight mb-6">
-            {siteConfig.name}
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8">
-            {siteConfig.tagline}
-          </p>
+    <section
+      className="relative min-h-screen flex items-center"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Gradient overlay: opaque left → transparent right */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(13,27,42,0.85) 0%, rgba(13,27,42,0.40) 50%, transparent 100%)",
+        }}
+      />
 
-          <div className="flex flex-wrap gap-3 mb-8">
-            <Button variant="outline" asChild>
-              <a href="#contact">
-                <Mail className="mr-1" size={16} /> Get in Touch
-              </a>
-            </Button>
-          </div>
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-8 md:px-16 py-32">
+        <p className="text-sm md:text-xs font-medium tracking-[0.2em] uppercase text-white/70 mb-4">
+          {siteConfig.title}
+        </p>
 
-          <div className="flex flex-wrap gap-3">
-            {trustSignals.map((signal) => (
-              <span
-                key={signal}
-                className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1"
-              >
-                {signal}
-              </span>
-            ))}
-          </div>
-        </div>
+        <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none mb-6">
+          {siteConfig.name}
+        </h1>
 
-        {/* RIGHT - PHOTO */}
-        <div className="order-1 md:order-2 flex justify-center">
-          <div className="relative">
-            <div className="absolute -inset-4 bg-primary/20 rounded-3xl blur-3xl" />
-            <img
-              src={profilePhoto}
-              alt={`${siteConfig.name} — ${siteConfig.title}`}
-              className="relative rounded-2xl shadow-xl w-72 md:w-80 object-cover"
-            />
-          </div>
-        </div>
+        <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-lg mb-10">
+          Building scalable web applications, internal tools, and automation
+          workflows for product-driven teams.
+        </p>
 
+        <Button
+          asChild
+          className="rounded-sm bg-white text-black hover:bg-white/90 font-medium px-8 h-11 shadow-none"
+        >
+          <a href="#contact">Get in Touch</a>
+        </Button>
+
+        <p className="mt-6 text-xs text-white/40 tracking-wide">
+          Open to Remote • Based in Brazil • English Proficient
+        </p>
       </div>
     </section>
   );
