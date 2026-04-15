@@ -10,19 +10,14 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Felipe Moura",
-    role: "Tech Lead at DTWO TECNOLOGIA",
-    text: "Lucas is one of those engineers who consistently delivers beyond expectations. He takes ownership of complex problems and builds solutions that are clean, scalable, and well-documented. A reliable teammate you can count on.",
+    name: "Liliane Silva",
+    role: "Especialista de Processos e Operações | Trabalhou com Lucas na Strides",
+    text: "Trabalhar com o Lucas é contar com um desenvolvedor tecnicamente muito sólido, com grande capacidade de transformar necessidades reais em soluções eficientes. Ele domina bem o desenvolvimento e a automação de processos, sempre com foco em melhorar fluxos, reduzir retrabalho e otimizar o tempo das equipes. Lucas entrega soluções bem estruturadas, confiáveis e pensadas para o longo prazo. Mais do que executar demandas, ele analisa cenários, propõe melhorias e constrói automações que realmente impactam a operação e o negócio. Um diferencial marcante é a forma como compartilha conhecimento. Lucas é acessível, didático e sempre disposto a explicar, apoiar e orientar, contribuindo ativamente para a evolução técnica do time e para a adoção de boas práticas. É um profissional comprometido, responsável e colaborativo, que une profundidade técnica, visão prática e capacidade de execução. Recomendo fortemente o Lucas para times que buscam um desenvolvedor que gera impacto, melhora processos e eleva o nível de quem trabalha ao seu lado.",
   },
   {
-    name: "Mariana Costa",
-    role: "Product Manager at Strides",
-    text: "Working with Lucas was a turning point for our operations. He automated workflows that used to take hours of manual work every week. His ability to connect technical solutions to real business impact is rare.",
-  },
-  {
-    name: "Rafael Oliveira",
-    role: "Software Engineer at Strides",
-    text: "Lucas has a strong sense of architecture and always pushes for better code quality. He's the kind of developer who improves the entire team's output — through reviews, tooling, and mentorship.",
+    name: "Pedro Caldas",
+    role: "Machine Learning | GenAI | AI Engineer @ Santander | Estudou com Lucas na Trybe",
+    text: "Lucas is an extremely hardworking person who cares a lot about being organized to achieve his goals. I studied with him during our programming course and that was undoubtedly his trait that caught my attention the most. Anyone lucky enough to work with Lucas can be sure to have someone very competent at their side.",
   },
 ];
 
