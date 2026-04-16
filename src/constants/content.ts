@@ -63,6 +63,7 @@ export const caseStudies: CaseStudy[] = [
       "Web Speech API",
       "TanStack Query",
       "AI APIs (OpenAI / Google models)",
+      "Lovable"
     ],
     demo: "https://www.instagram.com/habilitamais.app/reel/DWb-I_JkcPs/",
   },
@@ -141,23 +142,23 @@ export const experience: ExperienceEntry[] = [
       "Leverage AI-assisted development tools (Lovable, Antigravity) to accelerate feature delivery",
       "Participate in code reviews and promote engineering best practices",
     ],
-    stack: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase", "Stripe"],
+    stack: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase", "Stripe", "Lovable"],
   },
   {
     company: "STRIDES",
     role: "Software Engineer Jr.",
     period: "2023 — 2025",
     bullets: [
+      "Supported setup and management of 40+ educational cohorts and certificate workflows",
+      "Applied AI-assisted automations for communication workflows and data processing",
+      "Built automations using Google Apps Script and no-code/low-code platforms like Make and n8n",
       "Developed software features, automation workflows, and internal process improvements",
-      "Built automations using Google Apps Script and no-code/low-code platforms like Make",
       "Implemented system and API integrations to automate operational processes",
       "Structured and maintained operational data flows and internal process logic",
       "Optimized internal routines to reduce manual work and improve team efficiency",
-      "Applied AI-assisted automations for communication workflows and data processing",
       "Identified bottlenecks and proposed technical improvements to enhance productivity",
-      "Supported setup and management of 40+ educational cohorts and certificate workflows",
     ],
-    stack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "REST APIs", "Google Apps Script", "Make"],
+    stack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "REST APIs", "Google Apps Script", "Make", "n8n", "Cursor", "Git"],
   },
 ];
 
@@ -169,7 +170,7 @@ export const skillGroups = [
       "TypeScript",
       "JavaScript",
       "Tailwind CSS",
-      "HTML/CSS",
+      "HTML5/CSS3",
       "Responsive Design",
     ],
   },
@@ -192,6 +193,9 @@ export const skillGroups = [
       "Data Modeling",
       "Migrations",
       "Query Optimization",
+      "Sequelize",
+      "MongoDB",
+      "Mongoose"
     ],
   },
   {
