@@ -4,15 +4,18 @@ import heroBg from "@/assets/lucas-hero-bg.png";
 
 const Hero = () => {
   return (
-    <section
-      className="relative min-h-dvh flex items-center bg-cover bg-[position:80%_center] md:bg-center"
-      style={{
-        backgroundImage: `url(${heroBg})`,
-      }}
-    >
+    <section className="relative min-h-dvh flex items-center overflow-hidden">
+      {/* Background image as <img> to avoid mobile background-attachment repaint zoom */}
+      <img
+        src={heroBg}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover object-[80%_center] md:object-center z-0 pointer-events-none select-none"
+      />
+
       {/* Gradient overlay: opaque left → transparent right */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 z-10"
         style={{
           background:
             "linear-gradient(to right, rgba(13,27,42,0.85) 0%, rgba(13,27,42,0.40) 50%, transparent 100%)",
