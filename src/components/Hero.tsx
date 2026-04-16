@@ -10,7 +10,7 @@ const Hero = () => {
         src={heroBg}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-[80%_center] md:object-center z-0 pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-cover object-[80%_center] md:object-center z-0 pointer-events-none select-none will-change-transform transform-gpu scale-[1.01]"
       />
 
       {/* Gradient overlay: opaque left → transparent right */}
