@@ -23,7 +23,7 @@ const Hero = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-8 md:px-16 py-32">
+      <div className="relative z-20 max-w-6xl mx-auto w-full px-8 md:px-16 py-32">
         <p className="text-sm md:text-xs font-medium tracking-[0.2em] uppercase text-white/70 mb-4">
           {siteConfig.title}
         </p>
