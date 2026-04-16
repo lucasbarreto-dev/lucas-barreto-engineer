@@ -1,17 +1,13 @@
 
-# Experience Section — Carousel Refactor
+Simple responsive fix for Hero background positioning.
 
-Reuse the exact same Carousel pattern from `CaseStudies.tsx` (Embla via shadcn/ui).
+## Change
 
-## Changes
+**File: `src/components/Hero.tsx`**
 
-**File: `src/components/Experience.tsx`**
+Move `backgroundImage` to inline style (kept) but remove `backgroundPosition` and `backgroundSize` from inline style. Apply via Tailwind classes on the section:
 
-- Import `Carousel`, `CarouselContent`, `CarouselItem`, `CarouselPrevious`, `CarouselNext`, `CarouselApi`, `cn`, `useState`, `useEffect`, `useCallback`
-- Replace the vertical `grid gap-6` with `<Carousel>` + `<CarouselContent>`
-- Each experience card becomes a `<CarouselItem>` with `basis-full md:basis-[85%] lg:basis-[48%]` (peek effect)
-- Add hover effect on cards: `transition-transform hover:scale-[1.02] hover:shadow-lg`
-- Arrow buttons hidden on mobile, visible on md+ (same styling as CaseStudies)
-- Pagination dots below with active state tracking via `CarouselApi`
-- Expand container from `max-w-5xl` to `max-w-6xl` to match CaseStudies
-- All card content (company, role, period, bullets, stack) stays identical
+- `bg-cover` 
+- `bg-[position:80%_center] md:bg-center`
+
+This prioritizes the right side of the image (where the subject is) on mobile, and reverts to centered composition on `md+` screens. Gradient overlay, layout, content, and spacing remain untouched.
