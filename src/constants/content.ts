@@ -18,8 +18,8 @@ export const trustSignals = [
 
 export const about = {
   paragraphs: [
-    "I'm a Full Stack Software Engineer focused on building maintainable, scalable systems that solve real operational and product problems. My work spans backend services, internal tools, API integrations, and automation workflows — always with an emphasis on clean architecture and long-term maintainability.",
-    "I've worked across early-stage and growing companies, taking ownership of systems end-to-end — from database modeling and API design to frontend implementation and deployment. I'm most effective when I can connect engineering decisions to business outcomes.",
+    "I'm a Full Stack Software Engineer focused on building maintainable, scalable systems that solve real operational and product problems. My experience spans backend services, internal tools, API integrations, and automation workflows — with an emphasis on clean architecture and long-term maintainability.",
+    "I've worked across early-stage and growing companies, taking ownership of systems end-to-end — from database modeling and API design to frontend implementation and deployment.",
   ],
 };
 
@@ -142,7 +142,7 @@ export const experience: ExperienceEntry[] = [
       "Leverage AI-assisted development tools (Lovable, Antigravity) to accelerate feature delivery",
       "Participate in code reviews and promote engineering best practices",
     ],
-    stack: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase", "Stripe", "Lovable"],
+    stack: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase", "Stripe", "Lovable", "Git"],
   },
   {
     company: "STRIDES",
