@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
-import { siteConfig, navLinks } from "@/constants/content";
+import { siteConfig, navItems } from "@/constants/content";
+import { useTranslation } from "@/i18n/I18nProvider";
 import { Menu, X } from "lucide-react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -25,15 +28,16 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {navItems.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className="text-muted-foreground text-sm hover:text-foreground transition-colors"
             >
-              {link.label}
+              {t(`nav.${link.key}`)}
             </a>
           ))}
+          <LanguageSwitcher className="ml-2" />
         </div>
 
         {/* Mobile toggle */}
@@ -49,14 +53,17 @@ const Navbar = () => {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border px-6 pb-6 pt-2">
-          {navLinks.map((link) => (
+          <div className="flex justify-end py-2">
+            <LanguageSwitcher />
+          </div>
+          {navItems.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
               className="block py-3 text-muted-foreground hover:text-foreground transition-colors text-sm"
             >
-              {link.label}
+              {t(`nav.${link.key}`)}
             </a>
           ))}
         </div>
