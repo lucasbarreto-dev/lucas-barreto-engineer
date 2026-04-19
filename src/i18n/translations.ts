@@ -114,7 +114,7 @@ const en: Dictionary = {
   caseStudies: {
     heading: "Selected Works",
     subtitle:
-      "Engineering-focused case studies from internal tools, automation workflows, and system integrations.",
+      "Engineering-focused case studies from internal tools, automation workflows, system integrations and apps.",
     labels: {
       problem: "Problem",
       solution: "Solution",
@@ -277,7 +277,7 @@ const ptBR: Dictionary = {
   caseStudies: {
     heading: "Projetos Selecionados",
     subtitle:
-      "Estudos de caso com foco em engenharia: ferramentas internas, fluxos de automação e integrações de sistemas.",
+      "Estudos de caso com foco em engenharia: ferramentas internas, fluxos de automação, integrações de sistemas e apps.",
     labels: {
       problem: "Problema",
       solution: "Solução",
@@ -311,9 +311,9 @@ const ptBR: Dictionary = {
         problem:
           "Times de engenharia carecem de verificações automatizadas e centralizadas de compliance durante o code review. Vulnerabilidades de segurança, violações de licença e problemas de qualidade muitas vezes são detectados tarde demais — ou nunca — gerando correções caras e riscos de auditoria.",
         solution:
-          "Desenvolvi um bot full-stack de compliance que se conecta a PRs do GitHub via webhooks, sobe sandboxes isoladas no E2B para rodar scanners de segurança e usa Groq AI (LLaMA 3.1 70B) para analisar os achados. O sistema detecta segredos hardcoded, SQL injection, XSS, violações GPL, criptografia fraca e aplica regras customizadas — tudo com níveis de severidade configuráveis e dashboard em tempo real.",
+          "Desenvolvi um bot full-stack de compliance que se conecta a PRs do GitHub via webhooks, sobe sandboxes isoladas no E2B para rodar scanners de segurança e usa Groq AI (LLaMA 3.1 70B) para analisar os achados. O sistema detecta credenciais expostas diretamente no código, SQL injection, XSS, violações GPL, criptografia fraca e aplica regras customizadas — tudo com níveis de severidade configuráveis e dashboard em tempo real.",
         role:
-          "Desenhei e implementei toda a arquitetura do sistema — API de backend, orquestração de sandboxes E2B, integração com Groq AI, handlers de webhooks do GitHub App, motor de regras de compliance e o dashboard em Next.js.",
+          "Como um dos desenvolvedores, desenhei e implementei toda a arquitetura do sistema — API de backend, orquestração de sandboxes E2B, integração com Groq AI, handlers de webhooks do GitHub App, motor de regras de compliance e o dashboard em Next.js.",
         outcome:
           "Entreguei uma ferramenta pronta para produção que escaneia PRs em 4 categorias de compliance (segurança, licenciamento, qualidade de código e regras customizadas), fornece comentários inline no PR com achados acionáveis e suporta comandos manuais para scans sob demanda e correções automatizadas.",
       },
@@ -322,9 +322,9 @@ const ptBR: Dictionary = {
         title: "Pipeline de Automação para Operações Educacionais",
         type: "Automação de Back-Office",
         context:
-          "O processo de atualização da plataforma de ensino dependia de trabalho manual repetitivo para organizar e publicar os ativos de sessões para turmas educacionais.",
+          "O processo de atualização da plataforma de ensino dependia de trabalho manual repetitivo para organizar e publicar os ativos de sessões para turmas em uma edTech.",
         problem:
-          "A operação dependia de um fluxo demorado para localizar gravações de reuniões, organizar pastas, renomear arquivos, exportar materiais e preparar conteúdo para publicação. Esse processo gerava inconsistências, aumentava o tempo de execução e introduzia erros operacionais evitáveis.",
+          "A operação dependia de um fluxo demorado para localizar gravações de reuniões, consultar planilhas, organizar pastas, renomear arquivos, exportar materiais e preparar conteúdo para publicação. Esse processo gerava inconsistências, aumentava o tempo de execução e introduzia erros operacionais evitáveis.",
         solution:
           "Construí um fluxo de automação diário usando Google Apps Script para processar os ativos das sessões de ponta a ponta. O sistema identificava metadados da sessão, criava estruturas de pasta padronizadas, copiava e renomeava as gravações, exportava materiais de apoio para PDF, gerava arquivos de metadados e registrava a execução para garantir rastreabilidade e processamento idempotente.",
         role:
