@@ -1,22 +1,25 @@
 import { siteConfig } from "@/constants/content";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useTranslation } from "@/i18n/I18nProvider";
 import { Mail, Github, Linkedin } from "lucide-react";
 
 const Contact = () => {
   const ref = useScrollReveal();
+  const { t } = useTranslation();
 
-  const mailtoLink = `mailto:${siteConfig.email}?subject=Opportunity&body=Hi Lucas, I saw your portfolio and would like to talk about an opportunity.`;
+  const subject = encodeURIComponent(t("contact.emailSubject"));
+  const body = encodeURIComponent(t("contact.emailBody"));
+  const mailtoLink = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
 
   return (
     <section id="contact" className="bg-section-alt py-20 md:py-28">
       <div ref={ref} className="max-w-3xl mx-auto px-6 text-center">
-        
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-          Looking for someone who automates processes and delivers results?
+          {t("contact.heading")}
         </h2>
 
         <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-          I can help your team reduce manual work and build more efficient systems using Node.js, integrations, and AI.
+          {t("contact.subtext")}
         </p>
 
         <a
@@ -24,11 +27,11 @@ const Contact = () => {
           className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-xl font-medium hover:opacity-90 transition mb-3"
         >
           <Mail size={18} />
-          Let's Talk
+          {t("contact.cta")}
         </a>
 
         <p className="text-xs text-muted-foreground mb-8">
-          Usually replies within 24 hours
+          {t("contact.replyNote")}
         </p>
 
         <div className="flex justify-center gap-6">
