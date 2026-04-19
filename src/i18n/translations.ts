@@ -263,15 +263,15 @@ const ptBR: Dictionary = {
     title: "Engenheiro de Software Full Stack",
     name: "Lucas Barreto",
     tagline:
-      "Construo aplicações web escaláveis, ferramentas internas e fluxos de automação para times orientados a produto.",
+      "Construindo aplicações web escaláveis, ferramentas internas e fluxos de automação para times orientados a produto.",
     cta: "Entrar em Contato",
-    microcopy: "Aberto a Remoto • Baseado no Brasil • Inglês Avançado",
+    microcopy: "Disponível para trabalho remoto • Atuando no Brasil • Inglês Avançado",
   },
   about: {
     heading: "Sobre",
     paragraphs: [
       "Sou Engenheiro de Software Full Stack focado em construir sistemas escaláveis e de fácil manutenção que resolvem problemas reais de produto e operação. Minha experiência abrange serviços de backend, ferramentas internas, integrações de APIs e fluxos de automação — sempre com foco em arquitetura limpa e manutenção a longo prazo.",
-      "Já trabalhei em empresas em estágio inicial e em crescimento, assumindo a responsabilidade dos sistemas de ponta a ponta — desde a modelagem de banco de dados e design de APIs até a implementação de frontend e deploy.",
+      "Já trabalhei em startups em estágio inicial e em crescimento, assumindo a responsabilidade dos sistemas de ponta a ponta — desde a modelagem de banco de dados e design de APIs até a implementação de frontend e deploy.",
     ],
   },
   caseStudies: {
