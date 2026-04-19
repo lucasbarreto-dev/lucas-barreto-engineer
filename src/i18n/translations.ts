@@ -359,7 +359,7 @@ const ptBR: Dictionary = {
         role: "Engenheiro de Software Jr.",
         period: "2023 — 2025",
         bullets: [
-          "Apoiei o setup e a gestão de mais de 40 turmas educacionais e emissão de certificados",
+          "Conduzi o setup e a gestão de mais de 40 turmas educacionais e emissão de certificados",
           "Apliquei automações com IA em fluxos de comunicação e processamento de dados",
           "Construí automações com Google Apps Script e plataformas no-code/low-code como Make e n8n",
           "Desenvolvi features de software, fluxos de automação e melhorias de processos internos",
@@ -392,7 +392,7 @@ const ptBR: Dictionary = {
         id: "liliane",
         name: "Liliane Silva",
         role: "Especialista em Processos e Operações | Trabalhou com o Lucas na Strides",
-        text: "O Lucas é um desenvolvedor tecnicamente forte, com sólida capacidade de transformar requisitos em soluções eficientes. Ele constrói sistemas bem estruturados e confiáveis, com forte foco em impacto real para o negócio. Também se destaca pela colaboração e disposição em compartilhar conhecimento, elevando consistentemente o nível técnico do time ao seu redor.",
+        text: "Trabalhar com o Lucas é contar com um desenvolvedor tecnicamente muito sólido, com grande capacidade de transformar necessidades reais em soluções eficientes. Ele constrói sistemas bem estruturados e confiáveis, com foco em impacto real para o negócio. Também se destaca pela colaboração e disposição em compartilhar conhecimento, elevando consistentemente o nível técnico do time ao seu redor.",
       },
       {
         id: "pedro",
