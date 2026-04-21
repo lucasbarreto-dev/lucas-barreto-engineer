@@ -1,31 +1,39 @@
 
-# Smooth Fade Transition on Language Switch
+# Fix: Case study "class-automator" não aparece
 
-Add a subtle fade animation when toggling between EN and PT-BR so content changes feel smooth instead of abrupt.
+## Causa raiz
 
-## Approach
+`src/components/CaseStudies.tsx` itera sobre `caseStudiesMeta` (em `src/constants/content.ts`) e busca o texto correspondente nas traduções por `id`. O novo case `class-automator` foi adicionado apenas em `src/i18n/translations.ts` (EN e PT-BR), mas **não** em `caseStudiesMeta` — por isso o loop nunca chega a ele e o card não é renderizado.
 
-Wrap the entire app content in a keyed container that re-mounts on language change, triggering a quick fade-in via the existing `animate-fade-in` Tailwind utility (already defined in `tailwind.config.ts`).
+Esse padrão é proposital: metadados (stack, links, vídeo) ficam em `content.ts` e textos traduzíveis em `translations.ts`, unidos pelo `id`.
 
-## Change
+## Mudança
 
-**File: `src/i18n/I18nProvider.tsx`**
+**Arquivo: `src/constants/content.ts`**
 
-- Wrap `{children}` inside the provider with a `<div>` that:
-  - Uses `key={lang}` to force a re-mount on language change
-  - Applies `className="animate-fade-in"` for a 0.3s opacity + subtle translateY transition
-  
-This gives a single, global, lightweight fade across all sections without touching each component or adding state/timers. The keyed remount is cheap (no data refetch — translations are static dictionaries already in memory).
+Adicionar ao array `caseStudiesMeta` uma nova entrada:
 
-## Why this approach
+```ts
+{
+  id: "class-automator",
+  stack: [
+    "Google Apps Script",
+    "JavaScript",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Google Sheets",
+  ],
+}
+```
 
-- **Zero per-component changes** — one edit, applied globally
-- **Uses existing animation token** (`animate-fade-in` in `tailwind.config.ts`) — no new CSS
-- **No flash of empty content** — React swaps trees synchronously; only opacity animates
-- **Respects existing structure** — Navbar (outside the keyed div if needed) stays stable; but since Navbar text also translates, including it in the fade is desired
+Sem `github`, `demo` ou `video` (a menos que você queira fornecer URLs — me avise e adiciono).
 
-## Out of scope
+## Resultado
 
-- Page-level route transitions
-- Per-section staggered animations
-- Reduced-motion media query handling (the animation is already very subtle, 300ms)
+O card "Strides Class Automator" passa a renderizar no carousel da seção Works, em ambas as línguas, com a stack exibida nos badges e sem botões de link externo (já que não há URLs).
+
+## Observações
+
+- Se quiser links (GitHub/demo/vídeo) no card, basta informar as URLs e eu incluo nos campos opcionais (`github`, `demo`, `video`, `videoExternalUrl`).
+- A stack atual é uma sugestão baseada no texto do case (GAS + interface React). Posso ajustar se preferir outra lista.
