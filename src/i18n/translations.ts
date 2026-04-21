@@ -347,6 +347,21 @@ const ptBR: Dictionary = {
         outcome:
           "Automatizei o processamento de 9 a 11 sessões por semana, economizando cerca de 12 a 15 minutos por sessão (~2 a 3 horas semanais). Reduzi os erros operacionais a praticamente zero, melhorando a padronização, confiabilidade e escalabilidade do fluxo de publicação.",
       },
+      {
+        id: "class-automator",
+        title: "Strides Class Automator — Ferramenta Interna de Operações",
+        type: "Sistema de Automação + Ferramenta Interna",
+        context:
+          "As operações educacionais na Strides exigiam a criação e gestão de calendários de turmas com base em códigos padronizados, utilizando scripts internos e coordenação manual dentro do Google Sheets.",
+        problem:
+          "O processo de geração de cronogramas dependia da execução manual de scripts no backend, interpretação de identificadores de turma e validação dos resultados. Isso gerava atrito para usuários não técnicos, aumentava o risco de erros e desacelerava os fluxos operacionais.",
+        solution:
+          "Desenvolvi uma interface web integrada ao Google Apps Script para simplificar e padronizar a execução dos pipelines de automação de calendários. Os usuários podiam inserir o código da turma e selecionar o ambiente de execução, acionando uma função backend responsável por gerar os cronogramas e retornar resultados estruturados. Também foi criado um ambiente de preview em React para replicar a interface e permitir iterações rápidas de UI sem depender da execução no GAS.",
+        role:
+          "Projetei e implementei a interface do usuário, realizei a integração com o Google Apps Script e estruturei o fluxo de execução para garantir automações consistentes e confiáveis em diferentes ambientes.",
+        outcome:
+          "Reduzi o atrito operacional e melhorei a usabilidade dos fluxos de automação internos, permitindo que usuários não técnicos acionassem com segurança a geração de calendários, ao mesmo tempo em que aumentei a consistência, a velocidade de execução e reduzi a dependência de suporte de engenharia.",
+      }
     ],
   },
   experience: {
