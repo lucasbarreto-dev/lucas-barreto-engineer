@@ -107,8 +107,10 @@ const en: Dictionary = {
   about: {
     heading: "About",
     paragraphs: [
-      "I'm a Full Stack Software Engineer focused on building maintainable, scalable systems that solve real operational and product problems. My experience spans backend services, internal tools, API integrations, and automation workflows — with an emphasis on clean architecture and long-term maintainability.",
-      "I've worked across early-stage and growing companies, taking ownership of systems end-to-end — from database modeling and API design to frontend implementation and deployment.",
+      "I'm a Software Engineer focused on building scalable systems, automation pipelines, and AI-powered workflows that drive real business impact.",
+      "My work spans across product engineering and internal systems, combining backend development, system design, and automation to connect product, operations, and data.",
+      "I've designed and implemented end-to-end solutions — from APIs and backend services to real-time features and system integrations — with a strong focus on reliability, scalability, and maintainability.",
+      "Recently, I've been working on AI-powered automation, integrating LLMs into production workflows to transform unstructured data into actionable insights and improve operational efficiency."
     ],
   },
   caseStudies: {
@@ -285,8 +287,10 @@ const ptBR: Dictionary = {
   about: {
     heading: "Sobre",
     paragraphs: [
-      "Sou Engenheiro de Software Full Stack focado em construir sistemas escaláveis e de fácil manutenção que resolvem problemas reais de produto e operação. Minha experiência abrange serviços de backend, ferramentas internas, integrações de APIs e fluxos de automação — sempre com foco em arquitetura limpa e manutenção a longo prazo.",
-      "Já trabalhei em startups em estágio inicial e em crescimento, assumindo a responsabilidade dos sistemas de ponta a ponta — desde a modelagem de banco de dados e design de APIs até a implementação de frontend e deploy.",
+      "Software Engineer focado na construção de sistemas escaláveis, pipelines de automação e workflows com IA que geram impacto real no negócio.",
+      "Atuo entre product engineering e sistemas internos, combinando desenvolvimento backend, design de sistemas e automação para conectar produto, operação e dados.",
+      "Tenho experiência no desenvolvimento de soluções end-to-end — desde APIs e serviços backend até funcionalidades real-time e integrações entre sistemas — com forte foco em confiabilidade, escalabilidade e manutenibilidade.",
+      "Recentemente, venho trabalhando com automações baseadas em IA, integrando LLMs em fluxos de produção para transformar dados não estruturados em insights acionáveis e aumentar a eficiência operacional.",
     ],
   },
   caseStudies: {
