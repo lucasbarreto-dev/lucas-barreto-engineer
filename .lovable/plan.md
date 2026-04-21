@@ -1,63 +1,31 @@
 
-# Multi-Language Support (i18n) — EN / PT-BR
+# Smooth Fade Transition on Language Switch
 
-Add a lightweight, dependency-free i18n system with a language switcher in the navbar.
+Add a subtle fade animation when toggling between EN and PT-BR so content changes feel smooth instead of abrupt.
 
 ## Approach
-Custom React Context + `localStorage` (no external library). The site is small with static content — `react-i18next` would be overkill. All strings live in two TS dictionaries for type safety and zero runtime fetch cost.
 
-## Files
+Wrap the entire app content in a keyed container that re-mounts on language change, triggering a quick fade-in via the existing `animate-fade-in` Tailwind utility (already defined in `tailwind.config.ts`).
 
-**New: `src/i18n/translations.ts`**
-- Exports `translations = { en, "pt-BR" }` covering ALL visible text:
-  - Navbar links (About, Works, Experience, Skills, Testimonials, Contact)
-  - Hero (title, tagline, CTA "Get in Touch", microcopy)
-  - About paragraphs (2)
-  - CaseStudies header + card section labels (Problem, Solution, Role & Contribution, Outcome, Watch Demo, Open on YouTube)
-  - All 3 case studies (title, type, context, problem, solution, role, outcome) — keyed by stable IDs
-  - Experience header + 2 entries (role, period, bullets) — keyed by company
-  - Skills header + group labels
-  - Testimonials header + subtitle + 2 testimonials (role, text)
-  - Contact (heading, subtext, CTA "Let's Talk", reply note)
-  - Footer (just © year + name, no translation needed)
-- Stack arrays remain language-neutral (tech names)
+## Change
 
-**New: `src/i18n/I18nProvider.tsx`**
-- `LanguageContext` with `{ lang, setLang, t }`
-- `lang: "en" | "pt-BR"`, default = `localStorage` value, else browser `navigator.language.startsWith("pt")` ? `"pt-BR"` : `"en"`
-- `t(key)` resolves dot-paths (e.g. `t("hero.cta")`)
-- `useEffect` syncs `document.documentElement.lang` and persists to `localStorage`
-- Exports `useTranslation()` hook
+**File: `src/i18n/I18nProvider.tsx`**
 
-**New: `src/components/LanguageSwitcher.tsx`**
-- Minimal pill: `EN | PT` separated by a divider, active item bold/foreground color, inactive muted
-- `aria-label="Change language"` on each button
-- Placed inside Navbar (desktop: right of nav links; mobile: above menu items in the open panel)
+- Wrap `{children}` inside the provider with a `<div>` that:
+  - Uses `key={lang}` to force a re-mount on language change
+  - Applies `className="animate-fade-in"` for a 0.3s opacity + subtle translateY transition
+  
+This gives a single, global, lightweight fade across all sections without touching each component or adding state/timers. The keyed remount is cheap (no data refetch — translations are static dictionaries already in memory).
 
-**Edit: `src/App.tsx`**
-- Wrap `<BrowserRouter>` with `<I18nProvider>`
+## Why this approach
 
-**Edit: `src/components/Navbar.tsx`**
-- Replace hardcoded `navLinks` with `t("nav.about")` etc.
-- Add `<LanguageSwitcher />`
-
-**Edit each section component** (`Hero`, `About`, `CaseStudies`, `CaseStudyCard`, `Experience`, `Skills`, `Testimonials`, `Contact`):
-- Replace text from `siteConfig`/`content.ts` with `t()` calls
-- For dynamic lists (case studies, experience, testimonials, skill groups): iterate over `t("caseStudies.list")` which returns the array from current language dictionary
-- Stack/tech tags, links (github/demo/video URLs), and icons come from a language-neutral data file (refactor `content.ts` → split data into `meta` (URLs, stacks, IDs) and translatable text in dictionaries, joined by ID)
-
-**Edit: `src/constants/content.ts`**
-- Keep `siteConfig` (name, email, social URLs — language-neutral)
-- Keep stack arrays + URLs + IDs for case studies / experience entries
-- Remove translatable strings (moved to dictionaries)
-
-**Edit: `index.html`**
-- Initial `<html lang="en">` stays; provider updates it on mount
-
-## SEO
-- `<html lang>` updated dynamically by provider
-- `hreflang` tags skipped (single-URL SPA — no separate routes per language; not meaningful here)
+- **Zero per-component changes** — one edit, applied globally
+- **Uses existing animation token** (`animate-fade-in` in `tailwind.config.ts`) — no new CSS
+- **No flash of empty content** — React swaps trees synchronously; only opacity animates
+- **Respects existing structure** — Navbar (outside the keyed div if needed) stays stable; but since Navbar text also translates, including it in the fade is desired
 
 ## Out of scope
-- URL-based language routing (`/en`, `/pt-BR`) — not requested, and adds complexity
-- Translating tech stack names (kept as-is, industry standard)
+
+- Page-level route transitions
+- Per-section staggered animations
+- Reduced-motion media query handling (the animation is already very subtle, 300ms)
