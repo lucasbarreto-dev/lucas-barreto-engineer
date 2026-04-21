@@ -169,6 +169,21 @@ const en: Dictionary = {
         outcome:
           "Automated the processing of 9–11 sessions per week, saving approximately 12–15 minutes per session (~2–3 hours weekly). Reduced operational errors to near zero while improving standardization, reliability, and scalability of the publishing workflow.",
       },
+      {
+        id: "class-automator",
+        title: "Strides Class Automator — Internal Operations Tool",
+        type: "Automation System + Internal Tooling",
+        context:
+          "Educational operations at Strides required creating and managing cohort calendars based on standardized class codes, relying on internal scripts and manual coordination within Google Sheets.",
+        problem:
+          "The process of generating class schedules depended on manually triggering backend scripts, interpreting cohort identifiers, and validating outputs. This created friction for non-technical users, increased the risk of errors, and slowed down operational workflows.",
+        solution:
+          "Developed a web-based interface integrated with Google Apps Script to simplify and standardize the execution of calendar automation pipelines. Users could input a cohort code and select the target environment, triggering a backend function responsible for generating schedules and returning structured results. A React-based preview environment was also built to replicate the interface and enable faster UI iteration without depending on GAS execution.",
+        role:
+          "Designed and implemented the user interface, handled integration with Google Apps Script, and structured the execution flow to ensure consistent and reliable automation across environments.",
+        outcome:
+          "Reduced operational friction and improved usability of internal automation workflows, enabling non-technical users to safely trigger calendar generation processes while increasing consistency, execution speed, and reducing dependency on engineering support.",
+      } 
     ],
   },
   experience: {
