@@ -67,6 +67,17 @@ export const caseStudiesMeta: CaseStudyMeta[] = [
       "Google Meet",
     ],
   },
+  {
+    id: "class-automator",
+    stack: [
+      "Google Apps Script",
+      "JavaScript",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Google Sheets",
+    ],
+  },
 ];
 
 export interface ExperienceMeta {
