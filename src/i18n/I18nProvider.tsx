@@ -54,7 +54,9 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t, dict }}>
-      {children}
+      <div key={lang} className="animate-fade-in">
+        {children}
+      </div>
     </I18nContext.Provider>
   );
 };
