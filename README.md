@@ -2,7 +2,7 @@
 
 > Personal portfolio of **Lucas Barreto**, Full-Stack Engineer focused on AI-assisted product development, automation, and education technology.
 
-🌐 **Live site:** [lucas-barreto-engineer.lovable.app](https://lucas-barreto-engineer.lovable.app)
+🌐 **Live site:** [lucasbarretodev.com](https://www.lucasbarretodev.com)
 
 ---
 
