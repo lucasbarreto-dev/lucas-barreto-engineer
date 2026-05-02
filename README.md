@@ -1,3 +1,97 @@
-# Welcome to your Lovable project
+# Lucas Barreto — Portfolio
 
-TODO: Document your project here
+> Personal portfolio of **Lucas Barreto**, Full-Stack Engineer focused on AI-assisted product development, automation, and education technology.
+
+🌐 **Live site:** [lucas-barreto-engineer.lovable.app](https://lucas-barreto-engineer.lovable.app)
+
+---
+
+## ✨ About
+
+This is a single-page portfolio showcasing case studies, professional experience, technical skills, and testimonials. It's designed to feel polished, fast, and responsive — with subtle animations and a bilingual experience (English / Português Brasil).
+
+## 🧩 Features
+
+- 🌍 **Bilingual (i18n)** — EN / PT-BR with smooth fade transitions and persistence via `localStorage`
+- 📱 **Fully responsive** — mobile-first, optimized hero rendering on mobile browsers
+- 🎨 **Design system** — semantic tokens (HSL) via Tailwind + shadcn/ui
+- 🎬 **Case study carousel** — embedded videos and live demos
+- ⚡ **Scroll-reveal animations** — lightweight, no heavy libraries
+- ♿ **Accessible** — semantic HTML, proper alt text, keyboard navigation
+- 🔍 **SEO-ready** — dynamic `<html lang>`, meta tags, semantic structure
+
+## 🛠️ Tech Stack
+
+**Frontend**
+- React 18 + TypeScript
+- Vite 5
+- Tailwind CSS 3 + shadcn/ui
+- React Router
+- TanStack Query
+
+**Tooling & Quality**
+- Vitest + React Testing Library
+- Playwright (E2E)
+- ESLint + TypeScript strict mode
+
+**Built with**
+- [Lovable](https://lovable.dev) — AI-assisted development platform
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ and npm (or [Bun](https://bun.sh))
+
+### Install & run
+
+```bash
+# Clone the repo
+git clone https://github.com/lucasbarreto-dev/<repo-name>.git
+cd <repo-name>
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+The app will be available at `http://localhost:8080`.
+
+### Available scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start the local dev server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run unit tests (Vitest) |
+
+## 📁 Project Structure
+
+```
+src/
+├── components/      # UI components (Hero, About, CaseStudies, etc.)
+│   └── ui/          # shadcn/ui primitives
+├── constants/       # Language-neutral metadata (stacks, URLs, IDs)
+├── i18n/            # Translations (EN / PT-BR) + provider
+├── hooks/           # Custom React hooks
+├── pages/           # Route-level components
+└── index.css        # Design tokens (HSL semantic colors)
+```
+
+## 🌐 Internationalization
+
+Translations live in `src/i18n/translations.ts` as typed dictionaries. The `I18nProvider` syncs the active language with `localStorage` and `<html lang>`. To add a new language, extend the `Lang` type and provide a matching dictionary.
+
+## 📬 Contact
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/lucasbarreto-dev/)
+- 💻 [GitHub](https://github.com/lucasbarreto-dev)
+- 🧑‍💻 [Upwork](https://www.upwork.com/freelancers/~01849be61777eaf50b)
+- ✉️ lucasbs.code@gmail.com
+
+---
+
+<sub>Built with ❤️ using React, TypeScript & Lovable.</sub>
