@@ -17,11 +17,13 @@ export interface CaseStudyMeta {
   demo?: string;
   video?: string;
   videoExternalUrl?: string;
+  status?: "COMPLETED" | "ACTIVE";
 }
 
 export const caseStudiesMeta: CaseStudyMeta[] = [
   {
     id: "habilita",
+    status: "ACTIVE",
     stack: [
       "React",
       "TypeScript",
