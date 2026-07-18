@@ -23,6 +23,7 @@ export interface CaseStudyMeta {
 export const caseStudiesMeta: CaseStudyMeta[] = [
   {
     id: "habilita",
+    status: "ACTIVE",
     stack: [
       "React",
       "TypeScript",
