@@ -1,55 +1,121 @@
 
-# Refactor: Selected Works → Automation Canvas
+# Análise: Dockerizar o Portfólio (revisado)
 
-Replace the Embla carousel in `#work` with an interactive, n8n/VoltAgent-style canvas where each case study starts as a compact "node" and expands in place when clicked.
+Boa observação — vou consolidar tudo em **um único `Dockerfile` multi-stage** com targets nomeados (`dev`, `builder`, `production`), e o `docker-compose.yml` escolhe o target. Zero duplicação.
 
-## Scope
+## 1. Viabilidade
 
-Only the Works section is touched. Case study content, translations, and metadata (`caseStudiesMeta`, `translations.ts`) are reused as-is. `CaseStudyCard.tsx` keeps rendering the expanded content; the canvas layer wraps it.
+Sim, 100%. É uma SPA estática (React 18 + Vite 5 + TS + Tailwind), sem backend, sem DB, sem envs em runtime, sem storage no servidor. i18n e conteúdo vivem em arquivos TS; persistência de idioma é `localStorage` do browser.
 
-## Files
+## 2. Pontos de atenção (nenhum bloqueante)
 
-1. **`src/components/CaseStudies.tsx`** — full rewrite. Removes Embla carousel/pagination/api state. Introduces:
-   - `expandedId: string | null` state; clicking a node sets it (and collapses any other). Clicking the collapse control on the expanded card sets it back to `null`.
-   - Section container gets the dot-grid background: `bg-[radial-gradient(hsl(var(--border))_1px,transparent_1px)] [background-size:16px_16px]` layered over `--background`, with a soft radial mask/fade at the edges so the grid doesn't hit section boundaries harshly.
-   - Vertical stack (`flex flex-col items-center gap-0`) of node wrappers. Each wrapper has relative positioning to host ports and connector segments.
+- **Porta 8080** já fixada em `vite.config.ts` — ideal para container.
+- **HMR em volume montado** (Mac/Windows) pode exigir `CHOKIDAR_USEPOLLING=true`.
+- **Playwright** (devDep) — fica fora da imagem de produção via multi-stage; no stage `dev` só é instalado se você for rodar E2E no container (opcional).
+- **React Router (SPA)** — Nginx precisa de fallback `try_files ... /index.html`.
+- Sem secrets, sem API keys, sem serviço externo em runtime.
 
-2. **`src/components/CaseStudyNode.tsx`** — new component. Two visual states driven by `isExpanded`:
-   - **Collapsed:** `w-full max-w-xl h-12 px-4 rounded-lg border border-border bg-card flex items-center justify-between cursor-pointer transition-all duration-300 hover:border-primary/40`. Left: `GitBranch` (16px, `text-muted-foreground`) + title (`text-sm font-medium text-foreground`). Right: status pill `text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full px-2 py-0.5` reading `COMPLETED` (or `ACTIVE` for the in-progress one — flag added via optional `status` field on `CaseStudyMeta`, defaulting to `COMPLETED`).
-   - **Expanded:** `w-full max-w-3xl` wrapper that renders the existing `<CaseStudyCard meta text />` untouched, plus an absolute top-right collapse button (`ChevronUp`, ghost styling) that clears `expandedId`.
-   - Height/width transitions use `transition-all duration-300 ease-in-out`. To avoid animating between two totally different DOM shapes, the wrapper animates `max-width` + `opacity`, and the inner content is conditionally rendered with a short fade-in (`animate-fade-in`).
-   - Ports: two absolutely positioned dots (`h-2.5 w-2.5 rounded-full border border-border bg-background`), one at `-top-1.5 left-1/2 -translate-x-1/2`, one at `-bottom-1.5 left-1/2 -translate-x-1/2`. Rendered on both collapsed and expanded states so cables always attach.
+## 3. Benefícios × Trade-offs
 
-3. **`src/components/CaseStudyConnector.tsx`** — new. Simple vertical cable rendered between siblings. Implementation: a 2px-wide, `h-8` div with `bg-border` centered horizontally (`mx-auto`), wrapped in `hidden md:block` so mobile falls back to a plain 24px vertical gap divider (`h-6 w-px bg-border mx-auto md:hidden` — or just spacing). The connector sits between nodes in the flex column; because both ports are on the vertical centerline, the line visually links them. As nodes expand/collapse, the column reflows and the connector length stays constant while the node heights animate — the visual flow stays connected.
-   - Optional upgrade: swap the div for an inline `<svg>` `<path>` with a subtle stroke for a more "cable" feel; kept as a div initially for simplicity and reliability.
+**Benefícios:** ambiente reprodutível, imagem de produção enxuta (~40 MB Nginx+dist), deploy portátil (Fly.io/Railway/Cloud Run/VPS), onboarding em um comando.
+**Trade-offs:** HMR um pouco mais lento em volumes cross-OS, uma camada de config extra para manter, hospedagem atual (Lovable) já resolve o serve — Docker é ganho maior se você quiser sair do Lovable ou padronizar dev.
 
-4. **`src/constants/content.ts`** — add optional `status?: "COMPLETED" | "ACTIVE"` to `CaseStudyMeta`. Tag `habilita` as `ACTIVE`; the rest default to `COMPLETED`.
+## 4. Arquivos
 
-5. **`src/i18n/translations.ts`** — no changes required (status labels stay in English per spec: "COMPLETED" / "ACTIVE").
+**Criar**
+- `Dockerfile` — único, três stages: `dev`, `builder`, `production`.
+- `docker-compose.yml` — services que apontam para targets diferentes.
+- `.dockerignore` — `node_modules`, `dist`, `.git`, `playwright-report`, `test-results`, `.env*`, `.lovable`, screenshots.
+- `nginx.conf` — SPA fallback, gzip, cache por hash em `/assets/*`, `no-cache` no `index.html`.
 
-## Interaction details
+**Modificar**
+- `README.md` — seção "Running with Docker".
+- `vite.config.ts` — *opcional*: `server.watch.usePolling` atrás de env var, só se for usar o stage `dev` em volume montado.
 
-- Only one node expanded at a time (`expandedId` string state).
-- Clicking the collapsed bar expands it; clicking the `ChevronUp` on the expanded card collapses it. Clicking another collapsed bar switches expansion.
-- Keyboard: node bar is a `<button type="button">` with `aria-expanded` and `aria-controls`. Focus ring uses `focus-visible:ring-2 focus-visible:ring-primary/50`.
-- Scroll: when a node expands, smooth-scroll it into view with `element.scrollIntoView({ behavior: "smooth", block: "nearest" })` after state commit (via `useEffect` on `expandedId`).
+**Não precisa:** `.env`, mudanças em `package.json` (atalhos `docker:*` são opcionais).
 
-## Responsiveness
+## 5. Estrutura do Dockerfile único
 
-- Mobile (`<md`): connectors hidden, replaced by natural `gap-4` spacing; expanded card uses `w-full` with the section's `px-4` gutter (no `max-w-3xl` clamp below `md`).
-- Desktop: connectors visible, expanded card `max-w-3xl`, collapsed nodes `max-w-xl`, all centered.
+```text
+# Stage 1 — deps compartilhadas
+FROM node:20-alpine AS deps
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
 
-## Visual polish
+# Stage 2 — dev (Vite dev server + HMR)
+FROM node:20-alpine AS dev
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+EXPOSE 8080
+CMD ["npm", "run", "dev", "--", "--host"]
 
-- Node hover: `hover:border-primary/40 hover:bg-card/80`.
-- Expanded card retains existing `CaseStudyCard` styling; the collapse button is `absolute top-3 right-3 text-muted-foreground hover:text-foreground` — sits above card padding without overlapping the title (title has right padding room already).
-- Section heading and subtitle stay above the canvas, unchanged.
+# Stage 3 — builder (gera /app/dist)
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run build
 
-## Out of scope
+# Stage 4 — production (Nginx servindo dist)
+FROM nginx:alpine AS production
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
 
-- No changes to `Experience` carousel, `CaseStudyCard` internals, translations, or metadata beyond the `status` flag.
-- No drag/pan/zoom of the canvas — it's a static grid backdrop, not a real node editor.
+O stage `deps` evita reinstalar `node_modules` em `dev` e `builder`. Fica DRY de verdade.
 
-## Verification
+## 6. docker-compose.yml (esboço)
 
-After implementation: load `/`, confirm nodes render as compact bars with dot-grid background and vertical cables, click each to expand/collapse, confirm only one expands at a time, confirm mobile viewport hides cables and expands to full width.
+```text
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    ports: ["8080:8080"]
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    profiles: ["dev"]
+
+  web:
+    build:
+      context: .
+      target: production
+    ports: ["8080:80"]
+    profiles: ["prod"]
+```
+
+Uso:
+```text
+docker compose --profile dev up      # desenvolvimento com HMR
+docker compose --profile prod up     # build + serve com Nginx
+```
+
+## 7. Passo a passo de implementação
+
+1. **`.dockerignore`** — reduz build context e evita vazar artefatos locais.
+2. **`nginx.conf`** — SPA fallback + gzip + cache policy.
+3. **`Dockerfile`** único com os 4 stages (`deps`, `dev`, `builder`, `production`).
+4. **`docker-compose.yml`** com profiles `dev` e `prod`.
+5. **(Opcional)** ajuste em `vite.config.ts` para `usePolling` condicional.
+6. **`README.md`** — instruções Docker.
+7. **Verificação:**
+   - `docker compose --profile prod up --build` sobe e serve `/` e `/#work`.
+   - Rota inexistente cai no fallback (SPA, não 404 do Nginx).
+   - `docker compose --profile dev up` sobe Vite; edição em `Hero.tsx` dispara HMR.
+   - Imagem `production` < 60 MB.
+
+## Perguntas antes de implementar
+
+1. Quer os dois profiles (`dev` + `prod`) ou só `production` para deploy?
+2. Algum host-alvo específico (Fly.io / Railway / Cloud Run / VPS)? Isso muda pequenos detalhes (ex.: escutar em `$PORT`).
+3. Mantemos `npm ci` (há `package-lock.json`), correto?
+
+Aguardo sua aprovação.

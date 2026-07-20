@@ -68,6 +68,35 @@ The app will be available at `http://localhost:8080`.
 | `npm run lint` | Run ESLint |
 | `npm run test` | Run unit tests (Vitest) |
 
+## 🐳 Running with Docker
+
+The project ships with a single multi-stage `Dockerfile` (`deps` → `dev` → `builder` → `production`) and a `docker-compose.yml` that selects the target via profiles.
+
+### Development (Vite + HMR)
+
+```bash
+docker compose --profile dev up --build
+```
+
+Open `http://localhost:8080`. Source files are bind-mounted, so edits trigger HMR (polling is enabled for cross-OS compatibility).
+
+### Production (Nginx serving the static build)
+
+```bash
+docker compose --profile prod up --build
+```
+
+Open `http://localhost:8080` (mapped to Nginx port 80 inside the container). SPA routing, gzip, and long-term caching of hashed assets are configured in `nginx.conf`.
+
+### Building the production image directly
+
+```bash
+docker build --target production -t portfolio:latest .
+docker run --rm -p 8080:80 portfolio:latest
+```
+
+
+
 ## 📁 Project Structure
 
 ```
