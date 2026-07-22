@@ -20,7 +20,7 @@ const CaseStudies = () => {
     if (el) {
       // Wait for expansion transition to start before scrolling
       requestAnimationFrame(() => {
-        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
       });
     }
   }, [expandedId]);
@@ -40,17 +40,19 @@ const CaseStudies = () => {
         className="absolute inset-0 bg-[radial-gradient(hsl(var(--border))_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)] pointer-events-none"
       />
 
-      <div ref={ref} className="relative max-w-6xl mx-auto px-4 md:px-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-          {t("caseStudies.heading")}
-        </h2>
-        <p className="text-muted-foreground mb-10 max-w-2xl">
-          {t("caseStudies.subtitle")}
-        </p>
+      <div ref={ref} className="relative">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+            {t("caseStudies.heading")}
+          </h2>
+          <p className="text-muted-foreground mb-6 max-w-2xl">
+            {t("caseStudies.subtitle")}
+          </p>
+        </div>
 
-        <div className="flex flex-col items-center gap-4 md:gap-0">
+        <div className="flex flex-row items-center justify-start md:justify-center overflow-x-auto py-12 px-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {items.map(({ meta, text }, i) => (
-            <div key={meta.id} className="w-full flex flex-col items-center">
+            <div key={meta.id} className="flex items-center shrink-0">
               <CaseStudyNode
                 ref={(el) => {
                   nodeRefs.current[meta.id] = el;

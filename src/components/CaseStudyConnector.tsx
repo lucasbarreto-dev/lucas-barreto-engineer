@@ -1,7 +1,7 @@
 const CaseStudyConnector = () => (
   <div
     aria-hidden
-    className="hidden md:block w-px h-8 bg-border mx-auto"
+    className="shrink-0 self-center h-0.5 w-8 md:w-16 bg-border"
   />
 );
 
