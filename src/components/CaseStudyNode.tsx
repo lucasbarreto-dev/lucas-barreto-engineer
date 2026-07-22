@@ -12,12 +12,12 @@ interface Props {
   onToggle: () => void;
 }
 
-const Port = ({ position }: { position: "top" | "bottom" }) => (
+const Port = ({ position }: { position: "left" | "right" }) => (
   <span
     aria-hidden
     className={cn(
-      "absolute left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full border border-border bg-background z-10",
-      position === "top" ? "-top-1.5" : "-bottom-1.5"
+      "absolute top-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full border border-border bg-background z-10",
+      position === "left" ? "left-0 -translate-x-1/2" : "right-0 translate-x-1/2"
     )}
   />
 );
@@ -36,11 +36,13 @@ const CaseStudyNode = forwardRef<HTMLDivElement, Props>(
       <div
         ref={ref}
         className={cn(
-          "relative w-full transition-all duration-300 ease-in-out",
-          isExpanded ? "max-w-3xl" : "max-w-xl"
+          "relative shrink-0 transition-[width,max-width] duration-300 ease-in-out",
+          isExpanded
+            ? "w-[90vw] max-w-2xl"
+            : "w-64 md:w-72 h-32"
         )}
       >
-        <Port position="top" />
+        <Port position="left" />
 
         {isExpanded ? (
           <div id={panelId} className="relative animate-fade-in">
@@ -60,7 +62,7 @@ const CaseStudyNode = forwardRef<HTMLDivElement, Props>(
             onClick={onToggle}
             aria-expanded={isExpanded}
             aria-controls={panelId}
-            className="w-full h-12 px-4 rounded-lg border border-border bg-card flex items-center justify-between cursor-pointer transition-all duration-300 hover:border-primary/40 hover:bg-card/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+            className="w-full h-full p-4 rounded-lg border border-border bg-card flex flex-col justify-between cursor-pointer transition-colors duration-300 hover:border-primary/40 hover:bg-card/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 text-left"
           >
             <span className="flex items-center gap-2.5 min-w-0">
               <GitBranch size={16} className="text-muted-foreground shrink-0" />
@@ -70,7 +72,7 @@ const CaseStudyNode = forwardRef<HTMLDivElement, Props>(
             </span>
             <span
               className={cn(
-                "text-[10px] font-medium tracking-wider border rounded-full px-2 py-0.5 shrink-0",
+                "self-start text-[10px] font-medium tracking-wider border rounded-full px-2 py-0.5",
                 statusColor
               )}
             >
@@ -79,7 +81,7 @@ const CaseStudyNode = forwardRef<HTMLDivElement, Props>(
           </button>
         )}
 
-        <Port position="bottom" />
+        <Port position="right" />
       </div>
     );
   }
