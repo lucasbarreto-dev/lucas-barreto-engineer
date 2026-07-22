@@ -12,12 +12,16 @@ interface Props {
   onToggle: () => void;
 }
 
-const Port = ({ position }: { position: "left" | "right" }) => (
+const Port = ({ position }: { position: "start" | "end" }) => (
   <span
     aria-hidden
     className={cn(
-      "absolute top-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full border border-border bg-background z-10",
-      position === "left" ? "left-0 -translate-x-1/2" : "right-0 translate-x-1/2"
+      "absolute h-2.5 w-2.5 rounded-full border border-border bg-background z-10",
+      position === "start"
+        ? // Mobile: top-center. Desktop: left-center.
+          "-top-1.5 left-1/2 -translate-x-1/2 md:top-1/2 md:left-0 md:-translate-x-1/2 md:-translate-y-1/2"
+        : // Mobile: bottom-center. Desktop: right-center.
+          "-bottom-1.5 left-1/2 -translate-x-1/2 md:top-1/2 md:bottom-auto md:left-auto md:right-0 md:translate-x-1/2 md:-translate-y-1/2"
     )}
   />
 );
@@ -38,11 +42,11 @@ const CaseStudyNode = forwardRef<HTMLDivElement, Props>(
         className={cn(
           "relative shrink-0 transition-[width,max-width] duration-300 ease-in-out",
           isExpanded
-            ? "w-[90vw] max-w-2xl"
-            : "w-64 md:w-72 h-32"
+            ? "w-full max-w-2xl md:w-[90vw] md:max-w-2xl"
+            : "w-full max-w-xl h-12 md:w-72 md:h-32 md:max-w-none"
         )}
       >
-        <Port position="left" />
+        <Port position="start" />
 
         {isExpanded ? (
           <div id={panelId} className="relative animate-fade-in">
@@ -62,7 +66,7 @@ const CaseStudyNode = forwardRef<HTMLDivElement, Props>(
             onClick={onToggle}
             aria-expanded={isExpanded}
             aria-controls={panelId}
-            className="w-full h-full p-4 rounded-lg border border-border bg-card flex flex-col justify-between cursor-pointer transition-colors duration-300 hover:border-primary/40 hover:bg-card/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 text-left"
+            className="w-full h-full px-4 md:p-4 rounded-lg border border-border bg-card flex flex-row items-center justify-between md:flex-col md:justify-between md:items-stretch cursor-pointer transition-colors duration-300 hover:border-primary/40 hover:bg-card/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 text-left"
           >
             <span className="flex items-center gap-2.5 min-w-0">
               <GitBranch size={16} className="text-muted-foreground shrink-0" />
@@ -72,7 +76,7 @@ const CaseStudyNode = forwardRef<HTMLDivElement, Props>(
             </span>
             <span
               className={cn(
-                "self-start text-[10px] font-medium tracking-wider border rounded-full px-2 py-0.5",
+                "shrink-0 md:self-start text-[10px] font-medium tracking-wider border rounded-full px-2 py-0.5",
                 statusColor
               )}
             >
@@ -81,7 +85,7 @@ const CaseStudyNode = forwardRef<HTMLDivElement, Props>(
           </button>
         )}
 
-        <Port position="right" />
+        <Port position="end" />
       </div>
     );
   }

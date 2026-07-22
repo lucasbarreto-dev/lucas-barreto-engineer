@@ -20,7 +20,7 @@ const CaseStudies = () => {
     if (el) {
       // Wait for expansion transition to start before scrolling
       requestAnimationFrame(() => {
-        el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        el.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
       });
     }
   }, [expandedId]);
@@ -50,9 +50,9 @@ const CaseStudies = () => {
           </p>
         </div>
 
-        <div className="flex flex-row items-center justify-start md:justify-center overflow-x-auto py-12 px-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 overflow-x-visible md:overflow-x-auto py-12 px-4 md:px-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {items.map(({ meta, text }, i) => (
-            <div key={meta.id} className="flex items-center shrink-0">
+            <div key={meta.id} className="flex flex-col md:flex-row items-center shrink-0 w-full md:w-auto">
               <CaseStudyNode
                 ref={(el) => {
                   nodeRefs.current[meta.id] = el;
